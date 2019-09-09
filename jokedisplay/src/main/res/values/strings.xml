@@ -3,4 +3,5 @@
     <string name="title_activity_display">DisplayActivity</string>
     <string name="joke">Joke</string>
     <string name="no_jokes_found">WHAT IS THAT MELODY???</string>
+    <string name="envelope">Envelope</string>
 </resources>

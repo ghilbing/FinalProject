@@ -79,11 +79,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+
     androidTestImplementation('androidx.test.espresso:espresso-core:3.2.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     testImplementation 'junit:junit:4.12'
     implementation project(':jokesprovider')
+    implementation project(':javajoker')
     implementation project(':jokedisplay')
 }

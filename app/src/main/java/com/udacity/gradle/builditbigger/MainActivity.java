@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import lilee.hd.jokedisplay.DisplayActivity;
+import lilee.hd.jokesprovider.JokesProvider;
 
 
 public class MainActivity extends AppCompatActivity implements AsyncResponseHandler {
@@ -63,10 +65,11 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
 //        JokesProvider jokesProvider = new JokesProvider();
 //        Toast.makeText(this, jokesProvider.getJoke(), Toast.LENGTH_LONG).show();
 //        Intent intent = new Intent(this, DisplayActivity.class);
-//        intent.putExtra(DisplayActivity.JOKE_EXTRA);
+//        intent.putExtra(getString(R.string.envelope), jokesProvider.getJoke());
 //        startActivity(intent);
-        myAsyncTask.responseHandler = this;
-        myAsyncTask.execute();
+//        myAsyncTask.responseHandler = this;
+//        myAsyncTask.execute();
+        new MyAsyncTask().execute();
     }
 
     @Override

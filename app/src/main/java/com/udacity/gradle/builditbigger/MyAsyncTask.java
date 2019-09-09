@@ -1,6 +1,9 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -10,18 +13,22 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import lilee.hd.jokedisplay.DisplayActivity;
+
 // Ressources: https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319
 
 public class MyAsyncTask extends AsyncTask<Void, Void, String> {
-    private static final String TAG = "HAMMER DOWN";
+    private static final String TAG = "AsyncTask";
+
+    private Context context;
 
     private static MyApi myApiService = null;
 
-    AsyncResponseHandler responseHandler;
+    //AsyncResponseHandler responseHandler;
 
-    void setResponseHandler(AsyncResponseHandler responseHandler) {
-        this.responseHandler = responseHandler;
-    }
+//    void setResponseHandler(AsyncResponseHandler responseHandler) {
+//        this.responseHandler = responseHandler;
+//    }
 
     @Override
     protected String doInBackground(Void... params) {
@@ -36,6 +43,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
                     });
             myApiService = builder.build();
         }
+
         try {
             return myApiService.printJoke().execute().getData();
         } catch (IOException e) {
@@ -45,6 +53,8 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        responseHandler.responseHandle(result);
+        //responseHandler.responseHandle(result);
+       // Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+
     }
 }

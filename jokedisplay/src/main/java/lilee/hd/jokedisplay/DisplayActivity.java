@@ -1,5 +1,6 @@
 package lilee.hd.jokedisplay;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
@@ -13,7 +14,9 @@ public class DisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
         TextView jokeTextView = findViewById(R.id.joke_tv);
-        String joke = getIntent().getStringExtra(JOKE_EXTRA);
+        //String joke = getIntent().getStringExtra(JOKE_EXTRA);
+        Intent intent = getIntent();
+        String joke = intent.getStringExtra(getString(R.string.envelope));
 
         if (joke !=null){
             jokeTextView.setText(joke);
