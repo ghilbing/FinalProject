@@ -1,7 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -13,11 +12,10 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-import lilee.hd.jokedisplay.DisplayActivity;
 
 // Ressources: https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319
 
-public class MyAsyncTask extends AsyncTask<Void, Void, String> {
+public class MyAsyncTask extends AsyncTask<Context, Void, String> {
     private static final String TAG = "AsyncTask";
 
     private Context context;
@@ -31,7 +29,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 //    }
 
     @Override
-    protected String doInBackground(Void... params) {
+    protected String doInBackground(Context... params) {
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(new NetHttpTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
@@ -44,6 +42,8 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
             myApiService = builder.build();
         }
 
+        context = params[0];
+
         try {
             return myApiService.printJoke().execute().getData();
         } catch (IOException e) {
@@ -54,7 +54,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         //responseHandler.responseHandle(result);
-       // Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
 
     }
 }
