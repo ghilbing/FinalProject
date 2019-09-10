@@ -21,11 +21,11 @@ public class MyAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
     private static MyApi myApiService = null;
     private MainActivityFragment fragment;
 
-    //AsyncResponseHandler responseHandler;
+    AsyncResponseHandler responseHandler;
 
-//    void setResponseHandler(AsyncResponseHandler responseHandler) {
-//        this.responseHandler = responseHandler;
-//    }
+    void setResponseHandler(AsyncResponseHandler responseHandler) {
+        this.responseHandler = responseHandler;
+    }
 
     @Override
     protected String doInBackground(MainActivityFragment... params) {

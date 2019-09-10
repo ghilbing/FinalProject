@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
     private InterstitialAd mInterstitialAd;
 
     private static final String TAG = "HAMMER DOWN";
-  //  MyAsyncTask myAsyncTask = new MyAsyncTask();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
