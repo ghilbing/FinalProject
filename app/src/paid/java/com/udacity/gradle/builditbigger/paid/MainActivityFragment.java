@@ -1,23 +1,18 @@
 package com.udacity.gradle.builditbigger.paid;
 
-import android.content.Context;
-import android.content.Intent;
+
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-
 import com.udacity.gradle.builditbigger.MyAsyncTask;
 import com.udacity.gradle.builditbigger.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lilee.hd.jokedisplay.DisplayActivity;
+
 
 
 public class MainActivityFragment extends Fragment {
@@ -25,10 +20,6 @@ public class MainActivityFragment extends Fragment {
     ProgressBar progressBar = null;
     @BindView(R.id.joke_button)
     Button joke_button;
-    public String loadedJoke = null;
-
-    public boolean testFlag = false;
-
 
     public MainActivityFragment() {
     }

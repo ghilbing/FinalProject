@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -23,7 +24,8 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
     private static final String TAG = "AsyncTask";
     private Context context;
     private static MyApi myApiService = null;
-    private MainActivityFragment fragment;
+
+
 
     @Override
     protected String doInBackground(Context... params) {
@@ -48,13 +50,10 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
         }
     }
 
-
-
     @Override
     protected void onPostExecute(String result) {
        Intent intent = new Intent(context, DisplayActivity.class);
        intent.putExtra(context.getString(R.string.envelope), result);
        context.startActivity(intent);
-
     }
 }

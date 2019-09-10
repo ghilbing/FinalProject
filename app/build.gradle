@@ -95,5 +95,7 @@ dependencies {
     implementation project(':jokedisplay')
     implementation 'com.google.firebase:firebase-ads:18.2.0'
 
+    implementation 'com.google.android.gms:play-services-ads:15.0.0'
+
 
 }

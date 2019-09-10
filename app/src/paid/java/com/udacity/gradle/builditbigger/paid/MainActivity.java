@@ -1,11 +1,8 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.paid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,14 +10,12 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
-import lilee.hd.jokedisplay.DisplayActivity;
-import lilee.hd.jokesprovider.JokesProvider;
+import com.udacity.gradle.builditbigger.R;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private InterstitialAd mInterstitialAd;
+    //private InterstitialAd mInterstitialAd;
 
     private static final String TAG = "HAMMER DOWN";
 
@@ -28,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3597020112887836~4885523265");
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+//        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId("ca-app-pub-3597020112887836~4885523265");
     }
 
 
@@ -58,20 +53,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void tellJoke(View view) {
-//        JokesProvider jokesProvider = new JokesProvider();
-//        Toast.makeText(this, jokesProvider.getJoke(), Toast.LENGTH_LONG).show();
-//        Intent intent = new Intent(this, DisplayActivity.class);
-//        intent.putExtra(getString(R.string.envelope), jokesProvider.getJoke());
-//        startActivity(intent);
-//        myAsyncTask.responseHandler = this;
-//        myAsyncTask.execute();
-
-          //  myAsyncTask.execute(this);
-      //  new MyAsyncTask().execute(this);
-
     }
 
 
