@@ -21,12 +21,6 @@ public class MyAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
     private static MyApi myApiService = null;
     private MainActivityFragment fragment;
 
-    AsyncResponseHandler responseHandler;
-
-    void setResponseHandler(AsyncResponseHandler responseHandler) {
-        this.responseHandler = responseHandler;
-    }
-
     @Override
     protected String doInBackground(MainActivityFragment... params) {
         if (myApiService == null) {
@@ -60,7 +54,7 @@ public class MyAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
         //responseHandler.responseHandle(result);
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         fragment.loadedJoke = result;
-        fragment.launchDisplayJokeActivity();
+        fragment.launchDisplayActivity();
 
 
     }

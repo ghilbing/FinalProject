@@ -18,7 +18,7 @@ import lilee.hd.jokedisplay.DisplayActivity;
 import lilee.hd.jokesprovider.JokesProvider;
 
 
-public class MainActivity extends AppCompatActivity implements AsyncResponseHandler {
+public class MainActivity extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
 
@@ -74,11 +74,5 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
 
     }
 
-    @Override
-    public void responseHandle(String output) {
-        Intent intent = new Intent(this, DisplayActivity.class);
-        intent.putExtra(DisplayActivity.JOKE_EXTRA, output);
-        this.startActivity(intent);
-    }
 
 }

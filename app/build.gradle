@@ -44,19 +44,19 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
     }
-    sourceSets{
+    sourceSets {
         main { java.srcDirs = ['src/main/java'] }
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
     }
     flavorDimensions "version"
-    productFlavors(){
-        free{
+    productFlavors() {
+        free {
             dimension "version"
             applicationIdSuffix ".free"
             versionNameSuffix "-free"
         }
-        paid{
+        paid {
             dimension "version"
             applicationIdSuffix ".paid"
             versionNameSuffix "-paid"
@@ -69,6 +69,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     freeImplementation 'com.google.android.gms:play-services-ads:18.2.0'
@@ -92,6 +93,7 @@ dependencies {
     implementation project(':jokesprovider')
     implementation project(':javajoker')
     implementation project(':jokedisplay')
+    implementation 'com.google.firebase:firebase-ads:18.2.0'
 
 
 }
