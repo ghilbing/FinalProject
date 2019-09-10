@@ -15,10 +15,11 @@ import java.io.IOException;
 
 // Ressources: https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319
 
-public class MyAsyncTask extends AsyncTask<Context, Void, String> {
+public class MyAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
     private static final String TAG = "AsyncTask";
     private Context context;
     private static MyApi myApiService = null;
+    private MainActivityFragment fragment;
 
     //AsyncResponseHandler responseHandler;
 
@@ -27,7 +28,7 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
 //    }
 
     @Override
-    protected String doInBackground(Context... params) {
+    protected String doInBackground(MainActivityFragment... params) {
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(new NetHttpTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
@@ -40,7 +41,10 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
             myApiService = builder.build();
         }
 
-        context = params[0];
+        fragment = params[0];
+        context = fragment.getActivity();
+
+       // context = params[0];
 
         try {
             return myApiService.printJoke().execute().getData();
@@ -54,7 +58,10 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         //responseHandler.responseHandle(result);
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        fragment.loadedJoke = result;
+        fragment.launchDisplayJokeActivity();
+
 
     }
 }
