@@ -69,7 +69,9 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
 //        startActivity(intent);
 //        myAsyncTask.responseHandler = this;
 //        myAsyncTask.execute();
-        new MyAsyncTask().execute(this);
+
+            myAsyncTask.execute(this);
+
     }
 
     @Override
