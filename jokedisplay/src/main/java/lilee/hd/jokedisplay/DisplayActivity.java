@@ -9,14 +9,12 @@ import android.widget.TextView;
 public class DisplayActivity extends AppCompatActivity {
 
 
-    public static final String JOKE_EXTRA = "joke";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
         TextView jokeTextView = findViewById(R.id.joke_tv);
-        //String joke = getIntent().getStringExtra(JOKE_EXTRA);
         Intent intent = getIntent();
         String joke = intent.getStringExtra(getString(R.string.envelope));
 
