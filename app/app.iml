@@ -258,5 +258,11 @@
     <orderEntry type="module" module-name="javajoker" />
     <orderEntry type="module" module-name="jokedisplay" />
     <orderEntry type="module" module-name="jokesprovider" />
+    <orderEntry type="module" module-name="javajoker" />
+    <orderEntry type="module" module-name="jokedisplay" />
+    <orderEntry type="module" module-name="jokesprovider" />
+    <orderEntry type="module" module-name="javajoker" />
+    <orderEntry type="module" module-name="jokedisplay" />
+    <orderEntry type="module" module-name="jokesprovider" />
   </component>
 </module>

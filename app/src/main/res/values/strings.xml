@@ -5,4 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="envelope">Envelope</string>
+    <string name="interstitial_id">ca-app-pub-3597020112887836~4885523265</string>
+    <string name="device_id">1E7145215208BE449B00742AA5D68BE0</string>
 </resources>

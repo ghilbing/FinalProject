@@ -3,10 +3,9 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
@@ -24,6 +23,8 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
     private static final String TAG = "AsyncTask";
     private Context context;
     private static MyApi myApiService = null;
+    private InterstitialAd interstitialAd;
+    String mResult;
 
 
 
@@ -52,8 +53,36 @@ public class MyAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-       Intent intent = new Intent(context, DisplayActivity.class);
-       intent.putExtra(context.getString(R.string.envelope), result);
-       context.startActivity(intent);
+
+        mResult = result;
+
+        interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(context.getString(R.string.interstitial_id));
+        interstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                interstitialAd.show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                startDisplayActivity();
+            }
+
+            @Override
+            public void onAdClosed() {
+                startDisplayActivity();
+            }
+        });
+
+
+    }
+
+    public void startDisplayActivity(){
+        Intent intent = new Intent(context, DisplayActivity.class);
+        intent.putExtra(context.getString(R.string.envelope), mResult);
+        context.startActivity(intent);
     }
 }
